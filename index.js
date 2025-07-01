@@ -2,6 +2,7 @@ const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('modal-close-btn')
 const consentForm = document.getElementById('consent-form')
 const modalText = document.getElementById('modal-text')
+const modalInnerText = document.getElementById('modal-inner')
 
 setTimeout(function(){
     modal.style.display = 'inline'
@@ -16,10 +17,21 @@ consentForm.addEventListener('submit', function(e){
     modalText.innerHTML = `
     <div class="modal-inner-loading">
         <img src="images/loading.svg" class="loading">
-        <p id="uploadText">
-            Uploading your data to the dark web...
-        </p>
-    </div>`
-})
- 
+        <p id="upload-text">Uploading your data to the dark web...</p>
+    </div>` 
+    
+    setTimeout(function(){
+        document.getElementById('upload-text').innerText = "Making the sale..."
+        setTimeout(function(){
+            modalInnerText.innerHTML = `<h2>Thanks you sucker! </h2>
+        <p>We just sold the rights to your eternal soul.</p>
+        <div class="idiot-gif">
+            <img src="images/pirate.gif">
+        </div>
+        ` 
+        }, 1500)
+    }, 1500)
+    
+    
 
+}) 
